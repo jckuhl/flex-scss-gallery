@@ -1,32 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
-$color-accent: #1a53af;
-$color-background: #6da5ff;
-$color-card: #bad4ff;
-
-$fonts: 'Roboto', sans-serif;
-
-$header-size: 2em;
-
-$border: 2px solid $color-accent;
-$border-radius: 20px;
-
-$card-gutter: 10px;
+@import "mixins";
+@import "variables";
 
 @function px-to-per($target, $ctx) {
 	@return ($target / $ctx) * 100;
-}
-
-@mixin center-block {
-	display: block;
-	margin: 0 auto;
-}
-
-@mixin font-properties($size, $align) {
-	font-family: $fonts;
-	font-size: $size;
-	text-align: $align;
-	color: $color-accent;
 }
 
 h1 {
@@ -39,27 +16,36 @@ body {
 }
 
 .wrapper {
-	@include center-block;
+	@include center-block(block);
 	width: 100%;
 }
 
-.container {
-	@include center-block;
+.flex-container {
+	@include center-block(flex);
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 	width: 80%;
+	$width: null;
+	$fontsize: null;
+	$size: null;
+	@for $i from 1 through 2 {
+		@if $i == 1 {
+			$width: 50%;
+			$fontsize: 1.5em;
+			$size: "lg";
+		} @else {
+			$width: 30%;
+			$font-size: 1em;
+			$size: "sm";
+		}
+		.card-#{$size} {
+			@include gallery-images($width, $fontsize);
+		}
+	}
 }
 
-.card {
-	border: $border;
-	border-radius: $border-radius;
-	background-color: $color-card;
-	width: 30%;
-	max-width: 30%;
-	margin: $card-gutter;
-	p {
-		@include font-properties(1em, center);
-	}
-	img {
-		border-radius: $border-radius;
-		width: 100%;
-	}
+.arrow-btn {
+
 }
+

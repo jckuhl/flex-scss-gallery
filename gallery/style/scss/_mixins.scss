@@ -1,0 +1,27 @@
+@mixin center-block($display-type) {
+	display: $display-type;
+	margin: 0 auto;
+}
+
+@mixin font-properties($size, $align) {
+	font-family: $fonts;
+	font-size: $size;
+	text-align: $align;
+	color: $color-accent;
+}
+
+@mixin gallery-images($width,$fontsize) {
+	border: $border;
+	border-radius: $border-radius;
+	background-color: $color-card;
+	width: $width;
+	max-width: $width;
+	margin: $card-gutter;
+	img {
+			border-radius: $border-radius;
+			width: 100%;
+	}
+	p {
+		@include font-properties($fontsize, center);
+	}
+}
