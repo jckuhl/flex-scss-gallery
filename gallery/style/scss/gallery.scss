@@ -22,9 +22,7 @@ body {
 
 .flex-container {
 	@include center-block(flex);
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
+	@include flexy;
 	width: 80%;
 	$width: null;
 	$fontsize: null;
@@ -45,7 +43,24 @@ body {
 	}
 }
 
-.arrow-btn {
+.card-lg {
+	min-height: 500px;
+}
 
+.flex-gallery {
+	@extend .flex-container;
+	justify-content: left;
+}
+
+.flex-slideshow {
+	@extend .flex-container;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+.arrow-btn {
+	margin: 20px;
+	cursor: pointer;
 }
 

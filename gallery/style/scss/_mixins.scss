@@ -18,10 +18,15 @@
 	max-width: $width;
 	margin: $card-gutter;
 	img {
-			border-radius: $border-radius;
-			width: 100%;
+		border-radius: $border-radius;
+		width: 100%;
 	}
 	p {
 		@include font-properties($fontsize, center);
 	}
+}
+
+@mixin flexy {
+	flex-direction: row;
+	flex-wrap: wrap;
 }
